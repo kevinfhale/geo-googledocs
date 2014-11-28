@@ -247,6 +247,7 @@ function gcDialog() {
   grid.setWidget(0, 1, app.createListBox()
     .setName('apiBox')
     .setId('apiBox')
+    .addItem('google')
     .addItem('mapquest')
     .addItem('yahoo')
     .addItem('cicero'));
