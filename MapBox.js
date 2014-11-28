@@ -24,7 +24,7 @@ var geocoders = {
     },
     google: {
       query: function(query, key) {
-        return 'http://maps.googleapis.com/maps/api/geocode/output?key=' +
+        return 'https://maps.googleapis.com/maps/api/geocode/json?key=' +
           key + '&address=' + query;
       },
       parse: function(r) {
