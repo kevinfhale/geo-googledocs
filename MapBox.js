@@ -22,6 +22,23 @@ var geocoders = {
         }
       }
     },
+    google: {
+      query: function(query, key) {
+        return 'http://maps.googleapis.com/maps/api/geocode/output?key=' +
+          key + '&address=' + query;
+      },
+      parse: function(r) {
+        try {
+          return {
+            longitude: r.results[0].geometry.location.lng,
+            latitude: r.results[0].geometry.location.lat,
+            accuracy: r.results[0].geometry.location_type
+          }
+        } catch(e) {
+          return { longitude: '', latitude: '', accuracy: '' };
+        }
+      }
+    },
     mapquest: {
       query: function(query, key) {
         return 'http://open.mapquestapi.com/nominatim/v1/search?format=json&limit=1&q=' + query;
