@@ -176,7 +176,7 @@ function displayFile(file) {
   
   // Notify the user that the file is done and in the Google Docs list
   app.add(
-    app.createLabel('The GeoJSON file has been saved in your Google Docs List.')
+    app.createLabel('The GeoJSON file has been saved in your Google Drive')
     .setStyleAttribute('margin-bottom', '10')
   );
 
@@ -200,7 +200,7 @@ function getHeaders(sheet, range, columnHeadersRowIndex) {
 
 // Create the GeoJSON file and returns its filepath
 function createGJFile() {
-  return DocsList.createFile(
+  return DriveApp.createFile(
     (cleanCamel(ss.getName()) || 'unsaved') + '-' + Date.now() + '.geojson',
     Utilities.jsonStringify({
       type: 'FeatureCollection',
